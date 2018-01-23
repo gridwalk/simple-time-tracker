@@ -16,4 +16,4 @@ A web based time tracking tool. Uses localstorage for data. Keyboard optimized. 
 - No teams
 
 ## Code
-This project structure is based on [https://github.com/gridwalk/net-art-starter](Net Art Starter). Everything you need to know to build and run the project is there.
+This project structure is based on [Net Art Starter](https://github.com/gridwalk/net-art-starter). Everything you need to know to build and run the project is there.
