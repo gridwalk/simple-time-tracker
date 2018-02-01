@@ -15,16 +15,19 @@ window.addEventListener('keydown',function(e){
   if(e.which == 46){    
     if(inputIsFocused) return
     confirmDeleteSelected(focusId)
+    return
   }
 
   // enter (click)
   if(e.which == 13){
     document.activeElement.click()
+    return
   }
 
   // r (reset)
   if(e.which == 82){
     if(inputIsFocused) return
+    if(!focusId) return
 
     var shouldReset = confirm("Reset selected project?")
     if( shouldReset ){
@@ -33,7 +36,8 @@ window.addEventListener('keydown',function(e){
       state.projects[focusId].runningSeconds = 0
       renderState()  
     }
-    
+
+    return    
   }
 
   // n (rename)
@@ -45,12 +49,28 @@ window.addEventListener('keydown',function(e){
     }    
     state.projects[focusId].name = newName
     renderState()
+    return
   }
 
   // d (delete)
   if(e.which == 68){
     if(inputIsFocused) return
     confirmDeleteSelected(focusId)
+    return
+  }
+
+  // + (add 5 mins)
+  if(e.which == 187){
+    if(inputIsFocused) return
+    addTimeToProject(focusId,300)
+    return
+  }
+
+  // - (minus 5 mins)
+  if(e.which == 189){
+    if(inputIsFocused) return
+    addTimeToProject(focusId,-300)
+    return
   }
 
   var _tabbable = document.querySelectorAll('[tabindex]')
@@ -66,6 +86,7 @@ window.addEventListener('keydown',function(e){
     if( focusId == null && !inputIsFocused ) window['new-project-name'].focus()
     renderState()
     e.preventDefault()
+    return
   }
 
   // up
@@ -79,6 +100,7 @@ window.addEventListener('keydown',function(e){
     if( focusId == null && !inputIsFocused ) window['new-project-name'].focus()
     renderState()
     e.preventDefault()
+    return
   }
   
 })
@@ -89,6 +111,13 @@ function confirmDeleteSelected(focusId){
     state.projects.splice(focusId,1)
     renderState()  
   }
+}
+
+function addTimeToProject(focusId,seconds){
+  state.projects[focusId].seconds+=seconds
+  if(state.projects[focusId].seconds < 0)
+    state.projects[focusId].seconds = 0
+  renderState()
 }
 
 
