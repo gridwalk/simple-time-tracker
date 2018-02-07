@@ -7,7 +7,9 @@
 }
 
 body{
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
+  -webkit-font-smoothing:antialiased;
+  font-size: 11px;
 }
 
 .container{
@@ -20,6 +22,8 @@ input{
   padding: 15px 10px;
   margin: 0 0 60px;
   border:1px solid #ccc;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
   &:focus{
     outline:0;
     color:magenta;
