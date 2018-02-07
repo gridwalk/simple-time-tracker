@@ -220,6 +220,8 @@ var title = {
 
 function tick(argument) {
 
+  var anyProjectRunning = false
+
   // increment seconds on each project
   for (var i = 0; i < state.projects.length; i++) {
 
@@ -227,11 +229,12 @@ function tick(argument) {
 
     if( !project.running ) continue
     
+    anyProjectRunning = true
     project.runningSeconds = now() - project.sessionStart
 
   }
 
-  renderState()
+  if( anyProjectRunning ) renderState()
 
   setTimeout(tick,1000)
 }
