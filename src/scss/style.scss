@@ -13,8 +13,9 @@ body{
 }
 
 .container{
-  margin: 100px auto;
-  width: 400px;
+  margin: 7.5vw auto 0;
+  max-width: 400px;
+  padding: 0 20px;
 }
 
 input{
@@ -58,7 +59,8 @@ input{
   width: 100%;
   text-align: center;
   background-color: #fff;
-  padding: 20px 0;
+  padding: 20px;
+  line-height: 3em;
   >div{
     display: inline-block;
     margin-right: 20px;

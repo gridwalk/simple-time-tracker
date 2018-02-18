@@ -47,8 +47,9 @@ window.addEventListener('keydown',function(e){
   var inputIsFocused = (document.activeElement.tagName == 'INPUT')
 
   // delete
-  if(e.which == 46){    
+  if(e.which == 46 || e.which == 8){    
     if(inputIsFocused) return
+    if(focusId == null) return
     confirmDeleteSelected(focusId)
     return
   }
