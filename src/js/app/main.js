@@ -211,9 +211,9 @@ var title = {
     if( running ){
       title.counter++
       if( title.counter > 46 ) title.counter = 36
-      title.tag.innerHTML = '&#1283'+title.counter+'; FF Time'
+      title.tag.innerHTML = '&#1283'+title.counter+'; Simple Time'
     }else{
-      title.tag.innerHTML = '&#128511; FF Time'
+      title.tag.innerHTML = '&#128511; Simple Time'
     }
   }
 }
